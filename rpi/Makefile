@@ -5,8 +5,8 @@ clean:
 
 build:
 	mkdir -p build/
-	cp *.py build/
+	cp -r listeners/ *.py build/
 	pip install -r requirements.txt -t build/
 
 deploy:
-	scp build/ pi@waterboy.local:/home/pi/waterboy
+	rsync -av --delete build/ pi@waterboy.local:/home/pi/waterboy

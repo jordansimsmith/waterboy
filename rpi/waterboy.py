@@ -21,5 +21,6 @@ GPIO.add_event_detect(channel, GPIO.BOTH, bouncetime=300)
 GPIO.add_event_callback(channel, callback)
 
 # Listen indefinitely
+print("Listening on GPIO {} for changes.".format(channel))
 while True:
     time.sleep(1)
