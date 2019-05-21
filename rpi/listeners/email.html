@@ -1,90 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style type="text/css">
-      body {
-        font-family: Helvetica, sans-serif;
-      }
 
-      #header {
-        background-color: #1c994b;
-        color: white;
-        text-align: center;
-        padding: 5px;
-      }
+<head> </head>
 
-      #footer {
-        background-color: #1c994b;
-        color: white;
-        text-align: center;
-        padding: 1px;
-      }
-
-      #container {
-        max-width: 500px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      h2 {
-        color: #1c994b;
-      }
-
-      #image img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
-      }
-
-      ul {
-        padding: 0;
-      }
-
-      ul li {
-        display: inline-block;
-        margin-left: 15px;
-        margin-right: 15px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="header">
-      <h1>WATER BOY</h1>
+<body style="font-family: Helvetica, sans-serif">
+    <div id="header" style="background-color: #1c994b; color: white; text-align: center; padding: 5px">
+        <h1>WATER BOY</h1>
     </div>
 
-    <div id="container">
-      <div id="image">
-        <img src="https://i.ibb.co/ZWZ0n48/plant.png" />
-      </div>
-      <div id="title">
-        <h2>Your plant needs watering!</h2>
-      </div>
-      <div id="message"></div>
-      <p>
-        Dear {{ name }},
-        <br />
-        <br />
-        Your {{ plant }} plant needs watering. Please attend to it so it can
-        continue to grow.
-        <br />
-        <br />
-        Sincerely,
-        <br />
-        Your friendly WaterBoy.
-      </p>
+    <div id="container" style="max-width: 500px; margin-left: auto; margin-right: auto;">
+        <div id="image">
+            <img src="https://i.ibb.co/ZWZ0n48/plant.png" style="display: block; margin-left: auto; margin-right:auto; width: 50%;" />
+        </div>
+        <div id="title" style="text-align: center;">
+            <h2 style="color: #1c994b">Your plant needs watering!</h2>
+        </div>
+        <div id="message" style="padding: 10px;">
+            <p style="color: black">
+                Dear {{ name }},
+                <br /> Your {{ plant }} plant needs watering. Please attend to it so it can continue to grow.
+                <br /> Sincerely,
+                <br /> Your friendly WaterBoy.
+            </p>
+	</div>
     </div>
 
-    <div id="footer">
-      <ul>
-        <li>Jordan Sim-Smith</li>
-        <li>
-          <a href="https://github.com/jordansimsmith/waterboy" target="_blank">
+    <div id="footer" style="background-color: #1c994b; color: white; text-align: center;">
+	Jordan Sim-Smith
+        <a href="https://github.com/jordansimsmith/waterboy" target="_blank">
             GitHub
-          </a>
-        </li>
-      </ul>
+        </a>
     </div>
-  </body>
+</body>
+
 </html>
