@@ -1,19 +1,30 @@
 import os
+import time
 import yagmail
 from jinja2 import Template, FileSystemLoader, Environment
 
 
 class EmailListener:
+    SECONDS_IN_DAY = 86400
 
     def __init__(self, username, password, destination):
         # initialise STMP client
         self.__yag = yagmail.SMTP(username, password)
         self.__dest = destination
 
+        # set last email date as none
+        self.__last_email = None
+
     def notify(self, event):
         # send email if there is no water
         if not event['water']:
-            self.__send()
+
+            # check whether an email has been sent in the last day
+            if (self.__last_email is not None 
+                    and time.time() > self.__last_email + SECONDS_IN_DAY):
+                # send email and update last email time
+                self.__send()
+                self.__last_email = time.time()
 
     def __render_template(self):
         # set up variables
