@@ -1,0 +1,11 @@
+[Unit]
+Description=Sends alerts when the monitored plant needs watering
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/waterboy/waterboy.py
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

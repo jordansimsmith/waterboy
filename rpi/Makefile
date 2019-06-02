@@ -5,7 +5,7 @@ clean:
 
 build:
 	mkdir -p build/
-	cp -r listeners/ *.py build/
+	cp -r listeners/ *.py .env build/
 	pip install -r requirements.txt -t build/
 
 deploy:
