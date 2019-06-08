@@ -1,7 +1,7 @@
 import os
 import time
 import yagmail
-from jinja2 import Template, FileSystemLoader, Environment
+from jinja2 import FileSystemLoader, Environment
 
 
 class EmailListener:
@@ -20,19 +20,20 @@ class EmailListener:
         if not event['water']:
 
             # check whether an email has been sent in the last day
-            if (self.__last_email is not None 
-                    and time.time() > self.__last_email + SECONDS_IN_DAY):
+            if (self.__last_email is None
+                    or time.time() > self.__last_email + self.SECONDS_IN_DAY):
                 # send email and update last email time
                 self.__send()
                 self.__last_email = time.time()
+                print('Email sent to {}.'.format(self.__dest))
 
     def __render_template(self):
         # set up variables
         template_file = './email.html'
         render_vars = {
-                'name': 'Jordan',
-                'plant': 'Chili'
-                }
+            'name': 'Jordan',
+            'plant': 'Chili'
+        }
 
         # get directory
         script_path = os.path.dirname(os.path.abspath(__file__))
@@ -42,7 +43,6 @@ class EmailListener:
         text = env.get_template(template_file).render(render_vars)
 
         return text
-
 
     def __send(self):
         # structure email contents
