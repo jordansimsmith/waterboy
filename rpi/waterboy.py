@@ -38,7 +38,10 @@ def callback(channel):
 
     # notify listeners
     for l in listeners:
-        l.notify(event)
+        try:
+            l.notify(event)
+        except Exception as e:
+            print(e)
 
 
 # Add event listener
